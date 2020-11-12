@@ -1,0 +1,465 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ERPWeb_WorldTransModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Currency">
+    <Key>
+      <PropertyRef Name="crrID" />
+    </Key>
+    <Property Name="crrID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="crrNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="crrSymbol" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="DfltCrncy" Type="Boolean" />
+    <Property Name="ROE" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="crrNAMEE" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="FrtCrrId" Type="Int32" />
+    <Property Name="FltCrrId" Type="Int32" />
+    <Property Name="Fdate" Type="DateTime" Precision="0" />
+    <Property Name="TrmpCrrID" Type="Int32" />
+    <Property Name="AGNCRRID" Type="Int32" />
+  </EntityType>
+  <EntityContainer Name="ERPWeb_WorldTransEntities" annotation:LazyLoadingEnabled="false">
+    <EntitySet Name="Currencies" EntityType="Self.Currency" />
+    <EntitySet Name="Contact_IN_Group" EntityType="ERPWeb_WorldTransModel.Contact_IN_Group" />
+    <EntitySet Name="Contact_Loading_Addresses" EntityType="ERPWeb_WorldTransModel.Contact_Loading_Addresses" />
+    <EntitySet Name="Contact_PICs" EntityType="ERPWeb_WorldTransModel.Contact_PICs" />
+    <EntitySet Name="Contact_Types" EntityType="ERPWeb_WorldTransModel.Contact_Types" />
+    <EntitySet Name="ContactGroups" EntityType="ERPWeb_WorldTransModel.ContactGroup" />
+    <EntitySet Name="Contacts" EntityType="ERPWeb_WorldTransModel.Contact" />
+    <EntitySet Name="FirstBlanceContacts" EntityType="ERPWeb_WorldTransModel.FirstBlanceContact" />
+    <AssociationSet Name="FK__Contact_I__Conta__16333CCB" Association="ERPWeb_WorldTransModel.FK__Contact_I__Conta__16333CCB">
+      <End Role="Contact" EntitySet="Contacts" />
+      <End Role="Contact_IN_Group" EntitySet="Contact_IN_Group" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Contact_I__Group__17276104" Association="ERPWeb_WorldTransModel.FK__Contact_I__Group__17276104">
+      <End Role="ContactGroup" EntitySet="ContactGroups" />
+      <End Role="Contact_IN_Group" EntitySet="Contact_IN_Group" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Contact_Loading_Addresses_Contacts" Association="ERPWeb_WorldTransModel.FK_Contact_Loading_Addresses_Contacts">
+      <End Role="Contact" EntitySet="Contacts" />
+      <End Role="Contact_Loading_Addresses" EntitySet="Contact_Loading_Addresses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Contact_PICs_Contacts" Association="ERPWeb_WorldTransModel.FK_Contact_PICs_Contacts">
+      <End Role="Contact" EntitySet="Contacts" />
+      <End Role="Contact_PICs" EntitySet="Contact_PICs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Contacts_Contact_Types" Association="ERPWeb_WorldTransModel.FK_Contacts_Contact_Types">
+      <End Role="Contact_Types" EntitySet="Contact_Types" />
+      <End Role="Contact" EntitySet="Contacts" />
+    </AssociationSet>
+    <EntitySet Name="Employees" EntityType="ERPWeb_WorldTransModel.Employee" />
+    <AssociationSet Name="FK_Emp_Contact" Association="ERPWeb_WorldTransModel.FK_Emp_Contact">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="Contact" EntitySet="Contacts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employees_Employees" Association="ERPWeb_WorldTransModel.FK_Employees_Employees">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="Employee1" EntitySet="Employees" />
+    </AssociationSet>
+    <EntitySet Name="Countries" EntityType="ERPWeb_WorldTransModel.Country" />
+    <AssociationSet Name="FK__Contacts__Countr__09985BBC" Association="ERPWeb_WorldTransModel.FK__Contacts__Countr__09985BBC">
+      <End Role="Country" EntitySet="Countries" />
+      <End Role="Contact" EntitySet="Contacts" />
+    </AssociationSet>
+    <EntitySet Name="Accts" EntityType="ERPWeb_WorldTransModel.Acct" />
+    <AssociationSet Name="FK_FirstBlanceContact_Contacts" Association="ERPWeb_WorldTransModel.FK_FirstBlanceContact_Contacts">
+      <End Role="Contact" EntitySet="Contacts" />
+      <End Role="FirstBlanceContact" EntitySet="FirstBlanceContacts" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Contact_IN_Group">
+    <Key>
+      <PropertyRef Name="ContactGroup_ID" />
+    </Key>
+    <Property Name="ContactGroup_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Contact_ID_FK" Type="Int32" Nullable="false" />
+    <Property Name="Group_ID_FK" Type="Int32" Nullable="false" />
+    <Property Name="ExpireDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Contact" Relationship="ERPWeb_WorldTransModel.FK__Contact_I__Conta__16333CCB" FromRole="Contact_IN_Group" ToRole="Contact" />
+    <NavigationProperty Name="ContactGroup" Relationship="ERPWeb_WorldTransModel.FK__Contact_I__Group__17276104" FromRole="Contact_IN_Group" ToRole="ContactGroup" />
+  </EntityType>
+  <EntityType Name="Contact_Loading_Addresses">
+    <Key>
+      <PropertyRef Name="Loading_Address_ID" />
+    </Key>
+    <Property Name="Loading_Address_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Contact_ID_FK" Type="Int32" />
+    <Property Name="Loading_Address" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Contact" Relationship="ERPWeb_WorldTransModel.FK_Contact_Loading_Addresses_Contacts" FromRole="Contact_Loading_Addresses" ToRole="Contact" />
+  </EntityType>
+  <EntityType Name="Contact_PICs">
+    <Key>
+      <PropertyRef Name="Contact_PIC_ID" />
+    </Key>
+    <Property Name="Contact_PIC_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Contact_PIC_Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Contact_PIC_Name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Contact_PIC_Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Contact_PIC_Phone2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Contact_PIC_EMail" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Contact_ID_FK" Type="Int32" />
+    <Property Name="Created_Date" Type="DateTime" Precision="3" />
+    <Property Name="Last_update" Type="DateTime" Precision="3" />
+    <Property Name="Created_by" Type="Int32" />
+    <Property Name="Updated_by" Type="Int32" />
+    <NavigationProperty Name="Contact" Relationship="ERPWeb_WorldTransModel.FK_Contact_PICs_Contacts" FromRole="Contact_PICs" ToRole="Contact" />
+  </EntityType>
+  <EntityType Name="Contact_Types">
+    <Key>
+      <PropertyRef Name="Contact_Type_ID" />
+    </Key>
+    <Property Name="Contact_Type_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Contact_Type_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Contacts" Relationship="ERPWeb_WorldTransModel.FK_Contacts_Contact_Types" FromRole="Contact_Types" ToRole="Contact" />
+  </EntityType>
+  <EntityType Name="ContactGroup">
+    <Key>
+      <PropertyRef Name="ContactGroup_ID" />
+    </Key>
+    <Property Name="ContactGroup_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ContactGroup_Name" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Notes" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Created_Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Updated_Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Created_by" Type="Int32" Nullable="false" />
+    <Property Name="Updated_by" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Contact_IN_Group" Relationship="ERPWeb_WorldTransModel.FK__Contact_I__Group__17276104" FromRole="ContactGroup" ToRole="Contact_IN_Group" />
+  </EntityType>
+  <EntityType Name="Contact">
+    <Key>
+      <PropertyRef Name="Contact_ID" />
+    </Key>
+    <Property Name="Contact_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Contact_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Contact_Logo" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="Contact_Address" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="Contact_BL_Address" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="Contact_Billing_Address" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="Contact_Phone1" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Contact_Phone2" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Contact_Fax" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Contact_EMail" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Contact_WebSite" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Contact_Credit_Days" Type="Int32" />
+    <Property Name="Contact_Credit_Limit" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Contact_Type_ID_FK" Type="Int32" />
+    <Property Name="Employee_ID_FK" Type="Int64" />
+    <Property Name="Created_Date" Type="DateTime" Precision="3" />
+    <Property Name="Last_update" Type="DateTime" Precision="3" />
+    <Property Name="Created_by" Type="Int32" />
+    <Property Name="Updated_by" Type="Int32" />
+    <Property Name="Bank_Details" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="AccID" Type="Int32" />
+    <Property Name="Ref_Contract" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Prevent_Client_F_Operation" Type="Int32" />
+    <Property Name="CountryID" Type="Int32" />
+    <Property Name="Commercial_Register" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Tax_Certificate" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="IsAirline" Type="Boolean" Nullable="false" />
+    <Property Name="City" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="LettersCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PrefixCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Contact_IN_Group" Relationship="ERPWeb_WorldTransModel.FK__Contact_I__Conta__16333CCB" FromRole="Contact" ToRole="Contact_IN_Group" />
+    <NavigationProperty Name="Contact_Loading_Addresses" Relationship="ERPWeb_WorldTransModel.FK_Contact_Loading_Addresses_Contacts" FromRole="Contact" ToRole="Contact_Loading_Addresses" />
+    <NavigationProperty Name="Contact_PICs" Relationship="ERPWeb_WorldTransModel.FK_Contact_PICs_Contacts" FromRole="Contact" ToRole="Contact_PICs" />
+    <NavigationProperty Name="Contact_Types" Relationship="ERPWeb_WorldTransModel.FK_Contacts_Contact_Types" FromRole="Contact" ToRole="Contact_Types" />
+    <NavigationProperty Name="Employee" Relationship="ERPWeb_WorldTransModel.FK_Emp_Contact" FromRole="Contact" ToRole="Employee" />
+    <NavigationProperty Name="Country" Relationship="ERPWeb_WorldTransModel.FK__Contacts__Countr__09985BBC" FromRole="Contact" ToRole="Country" />
+    <NavigationProperty Name="FirstBlanceContacts" Relationship="ERPWeb_WorldTransModel.FK_FirstBlanceContact_Contacts" FromRole="Contact" ToRole="FirstBlanceContact" />
+  </EntityType>
+  <EntityType Name="FirstBlanceContact">
+    <Key>
+      <PropertyRef Name="Contact_Balance_ID" />
+    </Key>
+    <Property Name="Contact_Balance_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Contact_Balance_Name" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Contact_Balance_Currency" Type="Int32" />
+    <Property Name="Fk_Contact_ID" Type="Int32" />
+    <NavigationProperty Name="Contact" Relationship="ERPWeb_WorldTransModel.FK_FirstBlanceContact_Contacts" FromRole="FirstBlanceContact" ToRole="Contact" />
+  </EntityType>
+  <Association Name="FK__Contact_I__Conta__16333CCB">
+    <End Type="ERPWeb_WorldTransModel.Contact" Role="Contact" Multiplicity="1" />
+    <End Type="ERPWeb_WorldTransModel.Contact_IN_Group" Role="Contact_IN_Group" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Contact">
+        <PropertyRef Name="Contact_ID" />
+      </Principal>
+      <Dependent Role="Contact_IN_Group">
+        <PropertyRef Name="Contact_ID_FK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Contact_I__Group__17276104">
+    <End Type="ERPWeb_WorldTransModel.ContactGroup" Role="ContactGroup" Multiplicity="1" />
+    <End Type="ERPWeb_WorldTransModel.Contact_IN_Group" Role="Contact_IN_Group" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ContactGroup">
+        <PropertyRef Name="ContactGroup_ID" />
+      </Principal>
+      <Dependent Role="Contact_IN_Group">
+        <PropertyRef Name="Group_ID_FK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Contact_Loading_Addresses_Contacts">
+    <End Type="ERPWeb_WorldTransModel.Contact" Role="Contact" Multiplicity="0..1" />
+    <End Type="ERPWeb_WorldTransModel.Contact_Loading_Addresses" Role="Contact_Loading_Addresses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Contact">
+        <PropertyRef Name="Contact_ID" />
+      </Principal>
+      <Dependent Role="Contact_Loading_Addresses">
+        <PropertyRef Name="Contact_ID_FK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Contact_PICs_Contacts">
+    <End Type="ERPWeb_WorldTransModel.Contact" Role="Contact" Multiplicity="0..1" />
+    <End Type="ERPWeb_WorldTransModel.Contact_PICs" Role="Contact_PICs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Contact">
+        <PropertyRef Name="Contact_ID" />
+      </Principal>
+      <Dependent Role="Contact_PICs">
+        <PropertyRef Name="Contact_ID_FK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Contacts_Contact_Types">
+    <End Type="ERPWeb_WorldTransModel.Contact_Types" Role="Contact_Types" Multiplicity="0..1" />
+    <End Type="ERPWeb_WorldTransModel.Contact" Role="Contact" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Contact_Types">
+        <PropertyRef Name="Contact_Type_ID" />
+      </Principal>
+      <Dependent Role="Contact">
+        <PropertyRef Name="Contact_Type_ID_FK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="Employee_ID" />
+    </Key>
+    <Property Name="Employee_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Employee_Code" Type="Int32" />
+    <Property Name="Branch_Code" Type="Int32" />
+    <Property Name="Emp_Code" Type="Int32" />
+    <Property Name="Employee_Name" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="Employee_NameA" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="User_ID_FK" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="TypeOfID_ID_FK" Type="Int32" />
+    <Property Name="NationalID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BirthDate" Type="DateTime" Precision="0" />
+    <Property Name="Gender_ID_FK" Type="Int32" />
+    <Property Name="HireDate" Type="DateTime" Precision="0" />
+    <Property Name="Governorate_ID_FK" Type="Int32" />
+    <Property Name="AreasLocation_ID_FK" Type="Int32" />
+    <Property Name="Address" Type="String" MaxLength="3000" FixedLength="false" Unicode="true" />
+    <Property Name="AddressA" Type="String" MaxLength="3000" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="HomePhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MobilePhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="OfficePhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="OfficePhoneExtension" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Branch_ID_FK" Type="Int32" />
+    <Property Name="Location_ID_FK" Type="Int32" />
+    <Property Name="OrganizationDetail_ID_FK" Type="Int32" />
+    <Property Name="SocialInsuranceNO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SocialInsuranceDate" Type="DateTime" Precision="0" />
+    <Property Name="InsuranceOffice_ID_FK" Type="Int32" />
+    <Property Name="SocialInsuranceRealEndDate" Type="DateTime" Precision="0" />
+    <Property Name="SocialInsuranceEndDate" Type="DateTime" Precision="0" />
+    <Property Name="JobTitle_ID_FK" Type="Int32" />
+    <Property Name="RFID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="ExitReason_ID_FK" Type="Int32" />
+    <Property Name="MaritalStatus_ID_FK" Type="Int32" />
+    <Property Name="MilitaryStatus_ID_FK" Type="Int32" />
+    <Property Name="Nationality_ID_FK" Type="Int32" />
+    <Property Name="Religion_ID_FK" Type="Int32" />
+    <Property Name="Contract_From" Type="DateTime" Precision="0" />
+    <Property Name="ContractPeriod_ID_FK" Type="Int32" />
+    <Property Name="Contract_To" Type="DateTime" Precision="0" />
+    <Property Name="Contract_Amount" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Image_Path" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shift_ID_FK" Type="Int32" />
+    <Property Name="WeekEnd_ID_FK" Type="Int32" />
+    <Property Name="ISapproved" Type="Boolean" />
+    <Property Name="approvedDate" Type="DateTime" Precision="3" />
+    <Property Name="approved_Request_ID_FK" Type="Int64" />
+    <Property Name="InsuranceJob_ID_FK" Type="Int32" />
+    <Property Name="Qualification_ID_FK" Type="Int64" />
+    <Property Name="QualificationDate" Type="DateTime" Precision="3" />
+    <Property Name="Employee_Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ReportTO" Type="Int64" />
+    <Property Name="Is_resigned" Type="Boolean" />
+    <Property Name="LastResignationDate" Type="DateTime" Precision="0" />
+    <Property Name="ISBalckList" Type="Boolean" />
+    <Property Name="Creation_Employee_ID_FK" Type="Int64" />
+    <Property Name="Creation_date" Type="DateTime" Precision="0" />
+    <Property Name="LastUpdate_Employee_ID_FK" Type="Int64" />
+    <Property Name="LastUpdate_Date" Type="DateTime" Precision="3" />
+    <Property Name="EnrollNumber" Type="Int32" />
+    <Property Name="IsSalaryApproved" Type="Boolean" />
+    <Property Name="SalaryapprovedDate" Type="DateTime" Precision="3" />
+    <Property Name="Salaryapproved_Request_ID_FK" Type="Int64" />
+    <Property Name="Pay_BasicSalary" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Pay_VariableSalary" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Pay_HasAttendance" Type="Boolean" />
+    <Property Name="Pay_HasOverTime" Type="Boolean" />
+    <Property Name="Pay_HasTax" Type="Boolean" />
+    <Property Name="Pay_HasInsurance" Type="Boolean" />
+    <Property Name="Bank_ID_FK" Type="Int32" />
+    <Property Name="BankBranch_ID_FK" Type="Int32" />
+    <Property Name="BankAccountNO" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="BankCodeNO" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="ERPCode" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChidrenNO" Type="Int32" />
+    <Property Name="BirthLocationGovernorate_ID_FK" Type="Int32" />
+    <Property Name="ID_Validto_Date" Type="DateTime" Precision="0" />
+    <Property Name="MilitaryStatus_Expiration_Date" Type="DateTime" Precision="0" />
+    <Property Name="HRID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ContractType_ID_FK" Type="Int32" />
+    <Property Name="EmployeeType_ID_FK" Type="Int32" />
+    <Property Name="LegalEntity_ID_FK" Type="Int32" />
+    <Property Name="IDAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IDAddressA" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Faculty_ID_FK" Type="Int32" />
+    <Property Name="University_ID_FK" Type="Int32" />
+    <Property Name="MobilePhoneOther" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="RegistrationCertificateNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="RegistrationCertificateDate" Type="DateTime" Precision="0" />
+    <Property Name="IsSuperAdmin" Type="Boolean" Nullable="false" />
+    <Property Name="JobOffer_ID" Type="Int32" />
+    <Property Name="RptCostCenter_ID_FK" Type="Int32" />
+    <Property Name="TaxLowCategoryID_FK" Type="Int32" />
+    <Property Name="Employee_Ref" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Employee_Serial" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Target" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="See_Selling" Type="Boolean" />
+    <Property Name="See_Buying" Type="Boolean" />
+    <Property Name="IsAdmin" Type="Boolean" />
+    <Property Name="Is_Operation" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Contacts" Relationship="ERPWeb_WorldTransModel.FK_Emp_Contact" FromRole="Employee" ToRole="Contact" />
+    <NavigationProperty Name="Employees1" Relationship="ERPWeb_WorldTransModel.FK_Employees_Employees" FromRole="Employee" ToRole="Employee1" />
+    <NavigationProperty Name="Employee1" Relationship="ERPWeb_WorldTransModel.FK_Employees_Employees" FromRole="Employee1" ToRole="Employee" />
+  </EntityType>
+  <Association Name="FK_Emp_Contact">
+    <End Type="ERPWeb_WorldTransModel.Employee" Role="Employee" Multiplicity="0..1" />
+    <End Type="ERPWeb_WorldTransModel.Contact" Role="Contact" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="Employee_ID" />
+      </Principal>
+      <Dependent Role="Contact">
+        <PropertyRef Name="Employee_ID_FK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employees_Employees">
+    <End Type="ERPWeb_WorldTransModel.Employee" Role="Employee" Multiplicity="0..1" />
+    <End Type="ERPWeb_WorldTransModel.Employee" Role="Employee1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="Employee_ID" />
+      </Principal>
+      <Dependent Role="Employee1">
+        <PropertyRef Name="ReportTO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="Country_ID" />
+    </Key>
+    <Property Name="Country_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Country_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Contacts" Relationship="ERPWeb_WorldTransModel.FK__Contacts__Countr__09985BBC" FromRole="Country" ToRole="Contact" />
+  </EntityType>
+  <Association Name="FK__Contacts__Countr__09985BBC">
+    <End Type="ERPWeb_WorldTransModel.Country" Role="Country" Multiplicity="0..1" />
+    <End Type="ERPWeb_WorldTransModel.Contact" Role="Contact" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="Country_ID" />
+      </Principal>
+      <Dependent Role="Contact">
+        <PropertyRef Name="CountryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Acct">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AccID" Type="Int64" Nullable="false" />
+    <Property Name="AccName" Type="String" MaxLength="600" FixedLength="false" Unicode="true" />
+    <Property Name="AccNameE" Type="String" MaxLength="600" FixedLength="false" Unicode="true" />
+    <Property Name="AccKind" Type="String" MaxLength="600" FixedLength="false" Unicode="true" />
+    <Property Name="AccKindE" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="ctgry1" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="ctgry2" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="ctgry3" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="ctgry4" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="ctgry5" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="ctgry6" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="ctgry1e" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="ctgry2e" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="ctgry3e" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="ctgry4e" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="ctgry5e" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="ctgry6e" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="catg1id" Type="Int32" />
+    <Property Name="catg2id" Type="Int32" />
+    <Property Name="catg3id" Type="Int32" />
+    <Property Name="catg4id" Type="Int32" />
+    <Property Name="catg5id" Type="Int32" />
+    <Property Name="catg6id" Type="Int32" />
+    <Property Name="FDebit" Type="Double" />
+    <Property Name="FCredit" Type="Double" />
+    <Property Name="Debit" Type="Double" />
+    <Property Name="Credit" Type="Double" />
+    <Property Name="Balance" Type="Double" />
+    <Property Name="TrnsBool" Type="Int32" />
+    <Property Name="Depreciate" Type="Double" />
+    <Property Name="Flag" Type="Int32" />
+    <Property Name="InitZero" Type="Int32" />
+    <Property Name="currID" Type="Int32" />
+    <Property Name="Rate" Type="Double" />
+    <Property Name="COSTCAT" Type="Int32" />
+    <Property Name="FDebitCurr" Type="Double" />
+    <Property Name="FCreditCurr" Type="Double" />
+    <Property Name="DebitCurr" Type="Double" />
+    <Property Name="CreditCurr" Type="Double" />
+    <Property Name="BalanceCurr" Type="Double" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="KINDID" Type="Int32" />
+    <Property Name="FBALANCE" Type="Double" />
+    <Property Name="FBALANCECURR" Type="Double" />
+    <Property Name="REGION" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="YrBal" Type="Double" />
+    <Property Name="IsCshBnk" Type="Boolean" />
+    <Property Name="IsClntVndr" Type="Byte" />
+    <Property Name="EndAccKy" Type="Int32" />
+    <Property Name="IsMain" Type="Boolean" />
+    <Property Name="MainAccID" Type="Int64" />
+    <Property Name="IsRevalue" Type="Boolean" />
+    <Property Name="NtsAccID" Type="Int64" />
+    <Property Name="BranchID" Type="Int32" />
+    <Property Name="isbank" Type="Boolean" />
+    <Property Name="iscash" Type="Boolean" />
+    <Property Name="mirroraccid" Type="Int64" />
+  </EntityType>
+  <Association Name="FK_FirstBlanceContact_Contacts">
+    <End Type="ERPWeb_WorldTransModel.Contact" Role="Contact" Multiplicity="0..1" />
+    <End Type="ERPWeb_WorldTransModel.FirstBlanceContact" Role="FirstBlanceContact" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Contact">
+        <PropertyRef Name="Contact_ID" />
+      </Principal>
+      <Dependent Role="FirstBlanceContact">
+        <PropertyRef Name="Fk_Contact_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

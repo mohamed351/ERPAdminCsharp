@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="81705a20f7794422a4f1111e001bc2cc" Name="Diagram1">
+        <EntityTypeShape EntityType="ERPWeb_WorldTransModel.Currency" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPWeb_WorldTransModel.Contact_IN_Group" Width="1.5" PointX="11.25" PointY="6" />
+        <EntityTypeShape EntityType="ERPWeb_WorldTransModel.Contact_Loading_Addresses" Width="1.5" PointX="8.25" PointY="11.125" />
+        <EntityTypeShape EntityType="ERPWeb_WorldTransModel.Contact_PICs" Width="1.5" PointX="8.25" PointY="4.125" />
+        <EntityTypeShape EntityType="ERPWeb_WorldTransModel.Contact_Types" Width="1.5" PointX="3.625" PointY="7.875" />
+        <EntityTypeShape EntityType="ERPWeb_WorldTransModel.ContactGroup" Width="1.5" PointX="9" PointY="0.75" />
+        <EntityTypeShape EntityType="ERPWeb_WorldTransModel.Contact" Width="1.5" PointX="6" PointY="3.25" />
+        <EntityTypeShape EntityType="ERPWeb_WorldTransModel.FirstBlanceContact" Width="2.75" PointX="2.25" PointY="5.5" />
+        <AssociationConnector Association="ERPWeb_WorldTransModel.FK__Contact_I__Conta__16333CCB" />
+        <AssociationConnector Association="ERPWeb_WorldTransModel.FK__Contact_I__Group__17276104" />
+        <AssociationConnector Association="ERPWeb_WorldTransModel.FK_Contact_Loading_Addresses_Contacts" />
+        <AssociationConnector Association="ERPWeb_WorldTransModel.FK_Contact_PICs_Contacts" />
+        <AssociationConnector Association="ERPWeb_WorldTransModel.FK_Contacts_Contact_Types" />
+        <EntityTypeShape EntityType="ERPWeb_WorldTransModel.Employee" Width="1.5" PointX="0.75" PointY="9.875" />
+        <AssociationConnector Association="ERPWeb_WorldTransModel.FK_Emp_Contact" />
+        <AssociationConnector Association="ERPWeb_WorldTransModel.FK_Employees_Employees" />
+        <EntityTypeShape EntityType="ERPWeb_WorldTransModel.Country" Width="1.5" PointX="3.75" PointY="3.375" />
+        <AssociationConnector Association="ERPWeb_WorldTransModel.FK__Contacts__Countr__09985BBC" />
+        <EntityTypeShape EntityType="ERPWeb_WorldTransModel.Acct" Width="1.5" PointX="10.375" PointY="9.75" />
+        <AssociationConnector Association="ERPWeb_WorldTransModel.FK_FirstBlanceContact_Contacts" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

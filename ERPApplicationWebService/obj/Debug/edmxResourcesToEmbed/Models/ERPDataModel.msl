@@ -1,0 +1,303 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ERPWeb_WorldTransModelStoreContainer" CdmEntityContainer="ERPWeb_WorldTransEntities">
+    <EntitySetMapping Name="Currencies">
+      <EntityTypeMapping TypeName="ERPWeb_WorldTransModel.Currency">
+        <MappingFragment StoreEntitySet="Currencies">
+          <ScalarProperty Name="crrID" ColumnName="crrID" />
+          <ScalarProperty Name="crrNAME" ColumnName="crrNAME" />
+          <ScalarProperty Name="crrSymbol" ColumnName="crrSymbol" />
+          <ScalarProperty Name="DfltCrncy" ColumnName="DfltCrncy" />
+          <ScalarProperty Name="ROE" ColumnName="ROE" />
+          <ScalarProperty Name="crrNAMEE" ColumnName="crrNAMEE" />
+          <ScalarProperty Name="FrtCrrId" ColumnName="FrtCrrId" />
+          <ScalarProperty Name="FltCrrId" ColumnName="FltCrrId" />
+          <ScalarProperty Name="Fdate" ColumnName="Fdate" />
+          <ScalarProperty Name="TrmpCrrID" ColumnName="TrmpCrrID" />
+          <ScalarProperty Name="AGNCRRID" ColumnName="AGNCRRID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Contact_IN_Group">
+      <EntityTypeMapping TypeName="ERPWeb_WorldTransModel.Contact_IN_Group">
+        <MappingFragment StoreEntitySet="Contact_IN_Group">
+          <ScalarProperty Name="ExpireDate" ColumnName="ExpireDate" />
+          <ScalarProperty Name="Group_ID_FK" ColumnName="Group_ID_FK" />
+          <ScalarProperty Name="Contact_ID_FK" ColumnName="Contact_ID_FK" />
+          <ScalarProperty Name="ContactGroup_ID" ColumnName="ContactGroup_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Contact_Loading_Addresses">
+      <EntityTypeMapping TypeName="ERPWeb_WorldTransModel.Contact_Loading_Addresses">
+        <MappingFragment StoreEntitySet="Contact_Loading_Addresses">
+          <ScalarProperty Name="Loading_Address" ColumnName="Loading_Address" />
+          <ScalarProperty Name="Contact_ID_FK" ColumnName="Contact_ID_FK" />
+          <ScalarProperty Name="Loading_Address_ID" ColumnName="Loading_Address_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Contact_PICs">
+      <EntityTypeMapping TypeName="ERPWeb_WorldTransModel.Contact_PICs">
+        <MappingFragment StoreEntitySet="Contact_PICs">
+          <ScalarProperty Name="Updated_by" ColumnName="Updated_by" />
+          <ScalarProperty Name="Created_by" ColumnName="Created_by" />
+          <ScalarProperty Name="Last_update" ColumnName="Last_update" />
+          <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+          <ScalarProperty Name="Contact_ID_FK" ColumnName="Contact_ID_FK" />
+          <ScalarProperty Name="Contact_PIC_EMail" ColumnName="Contact_PIC_EMail" />
+          <ScalarProperty Name="Contact_PIC_Phone2" ColumnName="Contact_PIC_Phone2" />
+          <ScalarProperty Name="Contact_PIC_Phone" ColumnName="Contact_PIC_Phone" />
+          <ScalarProperty Name="Contact_PIC_Name" ColumnName="Contact_PIC_Name" />
+          <ScalarProperty Name="Contact_PIC_Title" ColumnName="Contact_PIC_Title" />
+          <ScalarProperty Name="Contact_PIC_ID" ColumnName="Contact_PIC_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Contact_Types">
+      <EntityTypeMapping TypeName="ERPWeb_WorldTransModel.Contact_Types">
+        <MappingFragment StoreEntitySet="Contact_Types">
+          <ScalarProperty Name="Contact_Type_Name" ColumnName="Contact_Type_Name" />
+          <ScalarProperty Name="Contact_Type_ID" ColumnName="Contact_Type_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ContactGroups">
+      <EntityTypeMapping TypeName="ERPWeb_WorldTransModel.ContactGroup">
+        <MappingFragment StoreEntitySet="ContactGroup">
+          <ScalarProperty Name="Updated_by" ColumnName="Updated_by" />
+          <ScalarProperty Name="Created_by" ColumnName="Created_by" />
+          <ScalarProperty Name="Updated_Date" ColumnName="Updated_Date" />
+          <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="ContactGroup_Name" ColumnName="ContactGroup_Name" />
+          <ScalarProperty Name="ContactGroup_ID" ColumnName="ContactGroup_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Contacts">
+      <EntityTypeMapping TypeName="ERPWeb_WorldTransModel.Contact">
+        <MappingFragment StoreEntitySet="Contacts">
+          <ScalarProperty Name="PrefixCode" ColumnName="PrefixCode" />
+          <ScalarProperty Name="LettersCode" ColumnName="LettersCode" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="IsAirline" ColumnName="IsAirline" />
+          <ScalarProperty Name="Tax_Certificate" ColumnName="Tax_Certificate" />
+          <ScalarProperty Name="Commercial_Register" ColumnName="Commercial_Register" />
+          <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+          <ScalarProperty Name="Prevent_Client_F_Operation" ColumnName="Prevent_Client_F_Operation" />
+          <ScalarProperty Name="Ref_Contract" ColumnName="Ref_Contract" />
+          <ScalarProperty Name="AccID" ColumnName="AccID" />
+          <ScalarProperty Name="Bank_Details" ColumnName="Bank_Details" />
+          <ScalarProperty Name="Updated_by" ColumnName="Updated_by" />
+          <ScalarProperty Name="Created_by" ColumnName="Created_by" />
+          <ScalarProperty Name="Last_update" ColumnName="Last_update" />
+          <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+          <ScalarProperty Name="Employee_ID_FK" ColumnName="Employee_ID_FK" />
+          <ScalarProperty Name="Contact_Type_ID_FK" ColumnName="Contact_Type_ID_FK" />
+          <ScalarProperty Name="Contact_Credit_Limit" ColumnName="Contact_Credit_Limit" />
+          <ScalarProperty Name="Contact_Credit_Days" ColumnName="Contact_Credit_Days" />
+          <ScalarProperty Name="Contact_WebSite" ColumnName="Contact_WebSite" />
+          <ScalarProperty Name="Contact_EMail" ColumnName="Contact_EMail" />
+          <ScalarProperty Name="Contact_Fax" ColumnName="Contact_Fax" />
+          <ScalarProperty Name="Contact_Phone2" ColumnName="Contact_Phone2" />
+          <ScalarProperty Name="Contact_Phone1" ColumnName="Contact_Phone1" />
+          <ScalarProperty Name="Contact_Billing_Address" ColumnName="Contact_Billing_Address" />
+          <ScalarProperty Name="Contact_BL_Address" ColumnName="Contact_BL_Address" />
+          <ScalarProperty Name="Contact_Address" ColumnName="Contact_Address" />
+          <ScalarProperty Name="Contact_Logo" ColumnName="Contact_Logo" />
+          <ScalarProperty Name="Contact_Name" ColumnName="Contact_Name" />
+          <ScalarProperty Name="Contact_ID" ColumnName="Contact_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FirstBlanceContacts">
+      <EntityTypeMapping TypeName="ERPWeb_WorldTransModel.FirstBlanceContact">
+        <MappingFragment StoreEntitySet="FirstBlanceContact">
+          <ScalarProperty Name="Fk_Contact_ID" ColumnName="Fk_Contact_ID" />
+          <ScalarProperty Name="Contact_Balance_Currency" ColumnName="Contact_Balance_Currency" />
+          <ScalarProperty Name="Contact_Balance_Name" ColumnName="Contact_Balance_Name" />
+          <ScalarProperty Name="Contact_Balance_ID" ColumnName="Contact_Balance_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employees">
+      <EntityTypeMapping TypeName="ERPWeb_WorldTransModel.Employee">
+        <MappingFragment StoreEntitySet="Employees">
+          <ScalarProperty Name="Is_Operation" ColumnName="Is_Operation" />
+          <ScalarProperty Name="IsAdmin" ColumnName="IsAdmin" />
+          <ScalarProperty Name="See_Buying" ColumnName="See_Buying" />
+          <ScalarProperty Name="See_Selling" ColumnName="See_Selling" />
+          <ScalarProperty Name="Target" ColumnName="Target" />
+          <ScalarProperty Name="Employee_Serial" ColumnName="Employee_Serial" />
+          <ScalarProperty Name="Employee_Ref" ColumnName="Employee_Ref" />
+          <ScalarProperty Name="TaxLowCategoryID_FK" ColumnName="TaxLowCategoryID_FK" />
+          <ScalarProperty Name="RptCostCenter_ID_FK" ColumnName="RptCostCenter_ID_FK" />
+          <ScalarProperty Name="JobOffer_ID" ColumnName="JobOffer_ID" />
+          <ScalarProperty Name="IsSuperAdmin" ColumnName="IsSuperAdmin" />
+          <ScalarProperty Name="RegistrationCertificateDate" ColumnName="RegistrationCertificateDate" />
+          <ScalarProperty Name="RegistrationCertificateNo" ColumnName="RegistrationCertificateNo" />
+          <ScalarProperty Name="MobilePhoneOther" ColumnName="MobilePhoneOther" />
+          <ScalarProperty Name="University_ID_FK" ColumnName="University_ID_FK" />
+          <ScalarProperty Name="Faculty_ID_FK" ColumnName="Faculty_ID_FK" />
+          <ScalarProperty Name="IDAddressA" ColumnName="IDAddressA" />
+          <ScalarProperty Name="IDAddress" ColumnName="IDAddress" />
+          <ScalarProperty Name="LegalEntity_ID_FK" ColumnName="LegalEntity_ID_FK" />
+          <ScalarProperty Name="EmployeeType_ID_FK" ColumnName="EmployeeType_ID_FK" />
+          <ScalarProperty Name="ContractType_ID_FK" ColumnName="ContractType_ID_FK" />
+          <ScalarProperty Name="HRID" ColumnName="HRID" />
+          <ScalarProperty Name="MilitaryStatus_Expiration_Date" ColumnName="MilitaryStatus_Expiration_Date" />
+          <ScalarProperty Name="ID_Validto_Date" ColumnName="ID_Validto_Date" />
+          <ScalarProperty Name="BirthLocationGovernorate_ID_FK" ColumnName="BirthLocationGovernorate_ID_FK" />
+          <ScalarProperty Name="ChidrenNO" ColumnName="ChidrenNO" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="ERPCode" ColumnName="ERPCode" />
+          <ScalarProperty Name="BankCodeNO" ColumnName="BankCodeNO" />
+          <ScalarProperty Name="BankAccountNO" ColumnName="BankAccountNO" />
+          <ScalarProperty Name="BankBranch_ID_FK" ColumnName="BankBranch_ID_FK" />
+          <ScalarProperty Name="Bank_ID_FK" ColumnName="Bank_ID_FK" />
+          <ScalarProperty Name="Pay_HasInsurance" ColumnName="Pay_HasInsurance" />
+          <ScalarProperty Name="Pay_HasTax" ColumnName="Pay_HasTax" />
+          <ScalarProperty Name="Pay_HasOverTime" ColumnName="Pay_HasOverTime" />
+          <ScalarProperty Name="Pay_HasAttendance" ColumnName="Pay_HasAttendance" />
+          <ScalarProperty Name="Pay_VariableSalary" ColumnName="Pay_VariableSalary" />
+          <ScalarProperty Name="Pay_BasicSalary" ColumnName="Pay_BasicSalary" />
+          <ScalarProperty Name="Salaryapproved_Request_ID_FK" ColumnName="Salaryapproved_Request_ID_FK" />
+          <ScalarProperty Name="SalaryapprovedDate" ColumnName="SalaryapprovedDate" />
+          <ScalarProperty Name="IsSalaryApproved" ColumnName="IsSalaryApproved" />
+          <ScalarProperty Name="EnrollNumber" ColumnName="EnrollNumber" />
+          <ScalarProperty Name="LastUpdate_Date" ColumnName="LastUpdate_Date" />
+          <ScalarProperty Name="LastUpdate_Employee_ID_FK" ColumnName="LastUpdate_Employee_ID_FK" />
+          <ScalarProperty Name="Creation_date" ColumnName="Creation_date" />
+          <ScalarProperty Name="Creation_Employee_ID_FK" ColumnName="Creation_Employee_ID_FK" />
+          <ScalarProperty Name="ISBalckList" ColumnName="ISBalckList" />
+          <ScalarProperty Name="LastResignationDate" ColumnName="LastResignationDate" />
+          <ScalarProperty Name="Is_resigned" ColumnName="Is_resigned" />
+          <ScalarProperty Name="ReportTO" ColumnName="ReportTO" />
+          <ScalarProperty Name="Employee_Notes" ColumnName="Employee_Notes" />
+          <ScalarProperty Name="QualificationDate" ColumnName="QualificationDate" />
+          <ScalarProperty Name="Qualification_ID_FK" ColumnName="Qualification_ID_FK" />
+          <ScalarProperty Name="InsuranceJob_ID_FK" ColumnName="InsuranceJob_ID_FK" />
+          <ScalarProperty Name="approved_Request_ID_FK" ColumnName="approved_Request_ID_FK" />
+          <ScalarProperty Name="approvedDate" ColumnName="approvedDate" />
+          <ScalarProperty Name="ISapproved" ColumnName="ISapproved" />
+          <ScalarProperty Name="WeekEnd_ID_FK" ColumnName="WeekEnd_ID_FK" />
+          <ScalarProperty Name="Shift_ID_FK" ColumnName="Shift_ID_FK" />
+          <ScalarProperty Name="Image_Path" ColumnName="Image_Path" />
+          <ScalarProperty Name="Contract_Amount" ColumnName="Contract_Amount" />
+          <ScalarProperty Name="Contract_To" ColumnName="Contract_To" />
+          <ScalarProperty Name="ContractPeriod_ID_FK" ColumnName="ContractPeriod_ID_FK" />
+          <ScalarProperty Name="Contract_From" ColumnName="Contract_From" />
+          <ScalarProperty Name="Religion_ID_FK" ColumnName="Religion_ID_FK" />
+          <ScalarProperty Name="Nationality_ID_FK" ColumnName="Nationality_ID_FK" />
+          <ScalarProperty Name="MilitaryStatus_ID_FK" ColumnName="MilitaryStatus_ID_FK" />
+          <ScalarProperty Name="MaritalStatus_ID_FK" ColumnName="MaritalStatus_ID_FK" />
+          <ScalarProperty Name="ExitReason_ID_FK" ColumnName="ExitReason_ID_FK" />
+          <ScalarProperty Name="RFID" ColumnName="RFID" />
+          <ScalarProperty Name="JobTitle_ID_FK" ColumnName="JobTitle_ID_FK" />
+          <ScalarProperty Name="SocialInsuranceEndDate" ColumnName="SocialInsuranceEndDate" />
+          <ScalarProperty Name="SocialInsuranceRealEndDate" ColumnName="SocialInsuranceRealEndDate" />
+          <ScalarProperty Name="InsuranceOffice_ID_FK" ColumnName="InsuranceOffice_ID_FK" />
+          <ScalarProperty Name="SocialInsuranceDate" ColumnName="SocialInsuranceDate" />
+          <ScalarProperty Name="SocialInsuranceNO" ColumnName="SocialInsuranceNO" />
+          <ScalarProperty Name="OrganizationDetail_ID_FK" ColumnName="OrganizationDetail_ID_FK" />
+          <ScalarProperty Name="Location_ID_FK" ColumnName="Location_ID_FK" />
+          <ScalarProperty Name="Branch_ID_FK" ColumnName="Branch_ID_FK" />
+          <ScalarProperty Name="OfficePhoneExtension" ColumnName="OfficePhoneExtension" />
+          <ScalarProperty Name="OfficePhone" ColumnName="OfficePhone" />
+          <ScalarProperty Name="MobilePhone" ColumnName="MobilePhone" />
+          <ScalarProperty Name="HomePhone" ColumnName="HomePhone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="AddressA" ColumnName="AddressA" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="AreasLocation_ID_FK" ColumnName="AreasLocation_ID_FK" />
+          <ScalarProperty Name="Governorate_ID_FK" ColumnName="Governorate_ID_FK" />
+          <ScalarProperty Name="HireDate" ColumnName="HireDate" />
+          <ScalarProperty Name="Gender_ID_FK" ColumnName="Gender_ID_FK" />
+          <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+          <ScalarProperty Name="NationalID" ColumnName="NationalID" />
+          <ScalarProperty Name="TypeOfID_ID_FK" ColumnName="TypeOfID_ID_FK" />
+          <ScalarProperty Name="User_ID_FK" ColumnName="User_ID_FK" />
+          <ScalarProperty Name="Employee_NameA" ColumnName="Employee_NameA" />
+          <ScalarProperty Name="Employee_Name" ColumnName="Employee_Name" />
+          <ScalarProperty Name="Emp_Code" ColumnName="Emp_Code" />
+          <ScalarProperty Name="Branch_Code" ColumnName="Branch_Code" />
+          <ScalarProperty Name="Employee_Code" ColumnName="Employee_Code" />
+          <ScalarProperty Name="Employee_ID" ColumnName="Employee_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Countries">
+      <EntityTypeMapping TypeName="ERPWeb_WorldTransModel.Country">
+        <MappingFragment StoreEntitySet="Countries">
+          <ScalarProperty Name="Country_Name" ColumnName="Country_Name" />
+          <ScalarProperty Name="Country_ID" ColumnName="Country_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Accts">
+      <EntityTypeMapping TypeName="ERPWeb_WorldTransModel.Acct">
+        <MappingFragment StoreEntitySet="Accts">
+          <ScalarProperty Name="mirroraccid" ColumnName="mirroraccid" />
+          <ScalarProperty Name="iscash" ColumnName="iscash" />
+          <ScalarProperty Name="isbank" ColumnName="isbank" />
+          <ScalarProperty Name="BranchID" ColumnName="BranchID" />
+          <ScalarProperty Name="NtsAccID" ColumnName="NtsAccID" />
+          <ScalarProperty Name="IsRevalue" ColumnName="IsRevalue" />
+          <ScalarProperty Name="MainAccID" ColumnName="MainAccID" />
+          <ScalarProperty Name="IsMain" ColumnName="IsMain" />
+          <ScalarProperty Name="EndAccKy" ColumnName="EndAccKy" />
+          <ScalarProperty Name="IsClntVndr" ColumnName="IsClntVndr" />
+          <ScalarProperty Name="IsCshBnk" ColumnName="IsCshBnk" />
+          <ScalarProperty Name="YrBal" ColumnName="YrBal" />
+          <ScalarProperty Name="REGION" ColumnName="REGION" />
+          <ScalarProperty Name="FBALANCECURR" ColumnName="FBALANCECURR" />
+          <ScalarProperty Name="FBALANCE" ColumnName="FBALANCE" />
+          <ScalarProperty Name="KINDID" ColumnName="KINDID" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="BalanceCurr" ColumnName="BalanceCurr" />
+          <ScalarProperty Name="CreditCurr" ColumnName="CreditCurr" />
+          <ScalarProperty Name="DebitCurr" ColumnName="DebitCurr" />
+          <ScalarProperty Name="FCreditCurr" ColumnName="FCreditCurr" />
+          <ScalarProperty Name="FDebitCurr" ColumnName="FDebitCurr" />
+          <ScalarProperty Name="COSTCAT" ColumnName="COSTCAT" />
+          <ScalarProperty Name="Rate" ColumnName="Rate" />
+          <ScalarProperty Name="currID" ColumnName="currID" />
+          <ScalarProperty Name="InitZero" ColumnName="InitZero" />
+          <ScalarProperty Name="Flag" ColumnName="Flag" />
+          <ScalarProperty Name="Depreciate" ColumnName="Depreciate" />
+          <ScalarProperty Name="TrnsBool" ColumnName="TrnsBool" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="Credit" ColumnName="Credit" />
+          <ScalarProperty Name="Debit" ColumnName="Debit" />
+          <ScalarProperty Name="FCredit" ColumnName="FCredit" />
+          <ScalarProperty Name="FDebit" ColumnName="FDebit" />
+          <ScalarProperty Name="catg6id" ColumnName="catg6id" />
+          <ScalarProperty Name="catg5id" ColumnName="catg5id" />
+          <ScalarProperty Name="catg4id" ColumnName="catg4id" />
+          <ScalarProperty Name="catg3id" ColumnName="catg3id" />
+          <ScalarProperty Name="catg2id" ColumnName="catg2id" />
+          <ScalarProperty Name="catg1id" ColumnName="catg1id" />
+          <ScalarProperty Name="ctgry6e" ColumnName="ctgry6e" />
+          <ScalarProperty Name="ctgry5e" ColumnName="ctgry5e" />
+          <ScalarProperty Name="ctgry4e" ColumnName="ctgry4e" />
+          <ScalarProperty Name="ctgry3e" ColumnName="ctgry3e" />
+          <ScalarProperty Name="ctgry2e" ColumnName="ctgry2e" />
+          <ScalarProperty Name="ctgry1e" ColumnName="ctgry1e" />
+          <ScalarProperty Name="ctgry6" ColumnName="ctgry6" />
+          <ScalarProperty Name="ctgry5" ColumnName="ctgry5" />
+          <ScalarProperty Name="ctgry4" ColumnName="ctgry4" />
+          <ScalarProperty Name="ctgry3" ColumnName="ctgry3" />
+          <ScalarProperty Name="ctgry2" ColumnName="ctgry2" />
+          <ScalarProperty Name="ctgry1" ColumnName="ctgry1" />
+          <ScalarProperty Name="AccKindE" ColumnName="AccKindE" />
+          <ScalarProperty Name="AccKind" ColumnName="AccKind" />
+          <ScalarProperty Name="AccNameE" ColumnName="AccNameE" />
+          <ScalarProperty Name="AccName" ColumnName="AccName" />
+          <ScalarProperty Name="AccID" ColumnName="AccID" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

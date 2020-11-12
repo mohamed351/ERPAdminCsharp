@@ -1,0 +1,63 @@
+﻿@model IEnumerable<ERPApplicationWebService.Models.ContactGroup>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ContactGroup_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Notes)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Created_Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Updated_Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Created_by)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Updated_by)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ContactGroup_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Notes)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Created_Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Updated_Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Created_by)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Updated_by)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ContactGroup_ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ContactGroup_ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ContactGroup_ID })
+        </td>
+    </tr>
+}
+
+</table>

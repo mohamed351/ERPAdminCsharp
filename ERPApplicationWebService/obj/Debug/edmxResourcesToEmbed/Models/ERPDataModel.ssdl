@@ -1,0 +1,447 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ERPWeb_WorldTransModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Accts">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AccID" Type="bigint" Nullable="false" />
+    <Property Name="AccName" Type="nvarchar" MaxLength="600" />
+    <Property Name="AccNameE" Type="nvarchar" MaxLength="600" />
+    <Property Name="AccKind" Type="nvarchar" MaxLength="600" />
+    <Property Name="AccKindE" Type="nvarchar" MaxLength="500" />
+    <Property Name="ctgry1" Type="nvarchar" MaxLength="500" />
+    <Property Name="ctgry2" Type="nvarchar" MaxLength="500" />
+    <Property Name="ctgry3" Type="nvarchar" MaxLength="500" />
+    <Property Name="ctgry4" Type="nvarchar" MaxLength="500" />
+    <Property Name="ctgry5" Type="nvarchar" MaxLength="500" />
+    <Property Name="ctgry6" Type="nvarchar" MaxLength="500" />
+    <Property Name="ctgry1e" Type="nvarchar" MaxLength="500" />
+    <Property Name="ctgry2e" Type="nvarchar" MaxLength="500" />
+    <Property Name="ctgry3e" Type="nvarchar" MaxLength="500" />
+    <Property Name="ctgry4e" Type="nvarchar" MaxLength="500" />
+    <Property Name="ctgry5e" Type="nvarchar" MaxLength="500" />
+    <Property Name="ctgry6e" Type="nvarchar" MaxLength="500" />
+    <Property Name="catg1id" Type="int" />
+    <Property Name="catg2id" Type="int" />
+    <Property Name="catg3id" Type="int" />
+    <Property Name="catg4id" Type="int" />
+    <Property Name="catg5id" Type="int" />
+    <Property Name="catg6id" Type="int" />
+    <Property Name="FDebit" Type="float" />
+    <Property Name="FCredit" Type="float" />
+    <Property Name="Debit" Type="float" />
+    <Property Name="Credit" Type="float" />
+    <Property Name="Balance" Type="float" />
+    <Property Name="TrnsBool" Type="int" />
+    <Property Name="Depreciate" Type="float" />
+    <Property Name="Flag" Type="int" />
+    <Property Name="InitZero" Type="int" />
+    <Property Name="currID" Type="int" />
+    <Property Name="Rate" Type="float" />
+    <Property Name="COSTCAT" Type="int" />
+    <Property Name="FDebitCurr" Type="float" />
+    <Property Name="FCreditCurr" Type="float" />
+    <Property Name="DebitCurr" Type="float" />
+    <Property Name="CreditCurr" Type="float" />
+    <Property Name="BalanceCurr" Type="float" />
+    <Property Name="Notes" Type="ntext" />
+    <Property Name="KINDID" Type="int" />
+    <Property Name="FBALANCE" Type="float" />
+    <Property Name="FBALANCECURR" Type="float" />
+    <Property Name="REGION" Type="nvarchar" MaxLength="500" />
+    <Property Name="YrBal" Type="float" />
+    <Property Name="IsCshBnk" Type="bit" />
+    <Property Name="IsClntVndr" Type="tinyint" />
+    <Property Name="EndAccKy" Type="int" />
+    <Property Name="IsMain" Type="bit" />
+    <Property Name="MainAccID" Type="bigint" />
+    <Property Name="IsRevalue" Type="bit" />
+    <Property Name="NtsAccID" Type="bigint" />
+    <Property Name="BranchID" Type="int" />
+    <Property Name="isbank" Type="bit" />
+    <Property Name="iscash" Type="bit" />
+    <Property Name="mirroraccid" Type="bigint" />
+  </EntityType>
+  <EntityType Name="Contact_IN_Group">
+    <Key>
+      <PropertyRef Name="ContactGroup_ID" />
+    </Key>
+    <Property Name="ContactGroup_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Contact_ID_FK" Type="int" Nullable="false" />
+    <Property Name="Group_ID_FK" Type="int" Nullable="false" />
+    <Property Name="ExpireDate" Type="date" />
+  </EntityType>
+  <EntityType Name="Contact_Loading_Addresses">
+    <Key>
+      <PropertyRef Name="Loading_Address_ID" />
+    </Key>
+    <Property Name="Loading_Address_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Contact_ID_FK" Type="int" />
+    <Property Name="Loading_Address" Type="nvarchar" MaxLength="4000" />
+  </EntityType>
+  <EntityType Name="Contact_PICs">
+    <Key>
+      <PropertyRef Name="Contact_PIC_ID" />
+    </Key>
+    <Property Name="Contact_PIC_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Contact_PIC_Title" Type="nvarchar" MaxLength="50" />
+    <Property Name="Contact_PIC_Name" Type="nvarchar" MaxLength="500" />
+    <Property Name="Contact_PIC_Phone" Type="nvarchar" MaxLength="50" />
+    <Property Name="Contact_PIC_Phone2" Type="nvarchar" MaxLength="50" />
+    <Property Name="Contact_PIC_EMail" Type="nvarchar" MaxLength="500" />
+    <Property Name="Contact_ID_FK" Type="int" />
+    <Property Name="Created_Date" Type="datetime" />
+    <Property Name="Last_update" Type="datetime" />
+    <Property Name="Created_by" Type="int" />
+    <Property Name="Updated_by" Type="int" />
+  </EntityType>
+  <EntityType Name="Contact_Types">
+    <Key>
+      <PropertyRef Name="Contact_Type_ID" />
+    </Key>
+    <Property Name="Contact_Type_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Contact_Type_Name" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="ContactGroup">
+    <Key>
+      <PropertyRef Name="ContactGroup_ID" />
+    </Key>
+    <Property Name="ContactGroup_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ContactGroup_Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Notes" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Created_Date" Type="datetime" Nullable="false" />
+    <Property Name="Updated_Date" Type="datetime" Nullable="false" />
+    <Property Name="Created_by" Type="int" Nullable="false" />
+    <Property Name="Updated_by" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Contacts">
+    <Key>
+      <PropertyRef Name="Contact_ID" />
+    </Key>
+    <Property Name="Contact_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Contact_Name" Type="nvarchar" MaxLength="100" />
+    <Property Name="Contact_Logo" Type="image" />
+    <Property Name="Contact_Address" Type="nvarchar" MaxLength="4000" />
+    <Property Name="Contact_BL_Address" Type="nvarchar" MaxLength="4000" />
+    <Property Name="Contact_Billing_Address" Type="nvarchar" MaxLength="4000" />
+    <Property Name="Contact_Phone1" Type="nvarchar" MaxLength="500" />
+    <Property Name="Contact_Phone2" Type="nvarchar" MaxLength="500" />
+    <Property Name="Contact_Fax" Type="nvarchar" MaxLength="500" />
+    <Property Name="Contact_EMail" Type="nvarchar" MaxLength="500" />
+    <Property Name="Contact_WebSite" Type="nvarchar" MaxLength="500" />
+    <Property Name="Contact_Credit_Days" Type="int" />
+    <Property Name="Contact_Credit_Limit" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Contact_Type_ID_FK" Type="int" />
+    <Property Name="Employee_ID_FK" Type="bigint" />
+    <Property Name="Created_Date" Type="datetime" />
+    <Property Name="Last_update" Type="datetime" />
+    <Property Name="Created_by" Type="int" />
+    <Property Name="Updated_by" Type="int" />
+    <Property Name="Bank_Details" Type="nvarchar" MaxLength="4000" />
+    <Property Name="AccID" Type="int" />
+    <Property Name="Ref_Contract" Type="nvarchar" MaxLength="500" />
+    <Property Name="Prevent_Client_F_Operation" Type="int" />
+    <Property Name="CountryID" Type="int" />
+    <Property Name="Commercial_Register" Type="nvarchar" MaxLength="250" />
+    <Property Name="Tax_Certificate" Type="nvarchar" MaxLength="250" />
+    <Property Name="IsAirline" Type="bit" Nullable="false" />
+    <Property Name="City" Type="nvarchar" MaxLength="250" />
+    <Property Name="LettersCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="PrefixCode" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Countries">
+    <Key>
+      <PropertyRef Name="Country_ID" />
+    </Key>
+    <Property Name="Country_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Country_Name" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Currencies">
+    <Key>
+      <PropertyRef Name="crrID" />
+    </Key>
+    <Property Name="crrID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="crrNAME" Type="nvarchar" MaxLength="50" />
+    <Property Name="crrSymbol" Type="nchar" MaxLength="10" />
+    <Property Name="DfltCrncy" Type="bit" />
+    <Property Name="ROE" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="crrNAMEE" Type="nvarchar" MaxLength="15" />
+    <Property Name="FrtCrrId" Type="int" />
+    <Property Name="FltCrrId" Type="int" />
+    <Property Name="Fdate" Type="date" />
+    <Property Name="TrmpCrrID" Type="int" />
+    <Property Name="AGNCRRID" Type="int" />
+  </EntityType>
+  <EntityType Name="Employees">
+    <Key>
+      <PropertyRef Name="Employee_ID" />
+    </Key>
+    <Property Name="Employee_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Employee_Code" Type="int" />
+    <Property Name="Branch_Code" Type="int" />
+    <Property Name="Emp_Code" Type="int" />
+    <Property Name="Employee_Name" Type="nvarchar" MaxLength="1000" />
+    <Property Name="Employee_NameA" Type="nvarchar" MaxLength="1000" />
+    <Property Name="User_ID_FK" Type="nvarchar" MaxLength="128" />
+    <Property Name="TypeOfID_ID_FK" Type="int" />
+    <Property Name="NationalID" Type="nvarchar" MaxLength="50" />
+    <Property Name="BirthDate" Type="date" />
+    <Property Name="Gender_ID_FK" Type="int" />
+    <Property Name="HireDate" Type="date" />
+    <Property Name="Governorate_ID_FK" Type="int" />
+    <Property Name="AreasLocation_ID_FK" Type="int" />
+    <Property Name="Address" Type="nvarchar" MaxLength="3000" />
+    <Property Name="AddressA" Type="nvarchar" MaxLength="3000" />
+    <Property Name="Email" Type="nvarchar" MaxLength="128" />
+    <Property Name="HomePhone" Type="nvarchar" MaxLength="50" />
+    <Property Name="MobilePhone" Type="nvarchar" MaxLength="50" />
+    <Property Name="OfficePhone" Type="nvarchar" MaxLength="50" />
+    <Property Name="OfficePhoneExtension" Type="nvarchar" MaxLength="50" />
+    <Property Name="Branch_ID_FK" Type="int" />
+    <Property Name="Location_ID_FK" Type="int" />
+    <Property Name="OrganizationDetail_ID_FK" Type="int" />
+    <Property Name="SocialInsuranceNO" Type="nvarchar" MaxLength="50" />
+    <Property Name="SocialInsuranceDate" Type="date" />
+    <Property Name="InsuranceOffice_ID_FK" Type="int" />
+    <Property Name="SocialInsuranceRealEndDate" Type="date" />
+    <Property Name="SocialInsuranceEndDate" Type="date" />
+    <Property Name="JobTitle_ID_FK" Type="int" />
+    <Property Name="RFID" Type="nvarchar" MaxLength="128" />
+    <Property Name="ExitReason_ID_FK" Type="int" />
+    <Property Name="MaritalStatus_ID_FK" Type="int" />
+    <Property Name="MilitaryStatus_ID_FK" Type="int" />
+    <Property Name="Nationality_ID_FK" Type="int" />
+    <Property Name="Religion_ID_FK" Type="int" />
+    <Property Name="Contract_From" Type="date" />
+    <Property Name="ContractPeriod_ID_FK" Type="int" />
+    <Property Name="Contract_To" Type="date" />
+    <Property Name="Contract_Amount" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Image_Path" Type="nvarchar(max)" />
+    <Property Name="Shift_ID_FK" Type="int" />
+    <Property Name="WeekEnd_ID_FK" Type="int" />
+    <Property Name="ISapproved" Type="bit" />
+    <Property Name="approvedDate" Type="datetime" />
+    <Property Name="approved_Request_ID_FK" Type="bigint" />
+    <Property Name="InsuranceJob_ID_FK" Type="int" />
+    <Property Name="Qualification_ID_FK" Type="bigint" />
+    <Property Name="QualificationDate" Type="datetime" />
+    <Property Name="Employee_Notes" Type="nvarchar(max)" />
+    <Property Name="ReportTO" Type="bigint" />
+    <Property Name="Is_resigned" Type="bit" />
+    <Property Name="LastResignationDate" Type="date" />
+    <Property Name="ISBalckList" Type="bit" />
+    <Property Name="Creation_Employee_ID_FK" Type="bigint" />
+    <Property Name="Creation_date" Type="date" />
+    <Property Name="LastUpdate_Employee_ID_FK" Type="bigint" />
+    <Property Name="LastUpdate_Date" Type="datetime" />
+    <Property Name="EnrollNumber" Type="int" />
+    <Property Name="IsSalaryApproved" Type="bit" />
+    <Property Name="SalaryapprovedDate" Type="datetime" />
+    <Property Name="Salaryapproved_Request_ID_FK" Type="bigint" />
+    <Property Name="Pay_BasicSalary" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Pay_VariableSalary" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Pay_HasAttendance" Type="bit" />
+    <Property Name="Pay_HasOverTime" Type="bit" />
+    <Property Name="Pay_HasTax" Type="bit" />
+    <Property Name="Pay_HasInsurance" Type="bit" />
+    <Property Name="Bank_ID_FK" Type="int" />
+    <Property Name="BankBranch_ID_FK" Type="int" />
+    <Property Name="BankAccountNO" Type="nvarchar" MaxLength="500" />
+    <Property Name="BankCodeNO" Type="nvarchar" MaxLength="500" />
+    <Property Name="ERPCode" Type="nvarchar" MaxLength="500" />
+    <Property Name="Notes" Type="nvarchar(max)" />
+    <Property Name="ChidrenNO" Type="int" />
+    <Property Name="BirthLocationGovernorate_ID_FK" Type="int" />
+    <Property Name="ID_Validto_Date" Type="date" />
+    <Property Name="MilitaryStatus_Expiration_Date" Type="date" />
+    <Property Name="HRID" Type="nvarchar(max)" />
+    <Property Name="ContractType_ID_FK" Type="int" />
+    <Property Name="EmployeeType_ID_FK" Type="int" />
+    <Property Name="LegalEntity_ID_FK" Type="int" />
+    <Property Name="IDAddress" Type="nvarchar(max)" />
+    <Property Name="IDAddressA" Type="nvarchar(max)" />
+    <Property Name="Faculty_ID_FK" Type="int" />
+    <Property Name="University_ID_FK" Type="int" />
+    <Property Name="MobilePhoneOther" Type="nvarchar" MaxLength="50" />
+    <Property Name="RegistrationCertificateNo" Type="varchar(max)" />
+    <Property Name="RegistrationCertificateDate" Type="date" />
+    <Property Name="IsSuperAdmin" Type="bit" Nullable="false" />
+    <Property Name="JobOffer_ID" Type="int" />
+    <Property Name="RptCostCenter_ID_FK" Type="int" />
+    <Property Name="TaxLowCategoryID_FK" Type="int" />
+    <Property Name="Employee_Ref" Type="nvarchar" MaxLength="50" />
+    <Property Name="Employee_Serial" Type="nvarchar" MaxLength="50" />
+    <Property Name="Target" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="See_Selling" Type="bit" />
+    <Property Name="See_Buying" Type="bit" />
+    <Property Name="IsAdmin" Type="bit" />
+    <Property Name="Is_Operation" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FirstBlanceContact">
+    <Key>
+      <PropertyRef Name="Contact_Balance_ID" />
+    </Key>
+    <Property Name="Contact_Balance_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Contact_Balance_Name" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Contact_Balance_Currency" Type="int" />
+    <Property Name="Fk_Contact_ID" Type="int" />
+  </EntityType>
+  <Association Name="FK__Contact_I__Conta__16333CCB">
+    <End Role="Contacts" Type="Self.Contacts" Multiplicity="1" />
+    <End Role="Contact_IN_Group" Type="Self.Contact_IN_Group" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Contacts">
+        <PropertyRef Name="Contact_ID" />
+      </Principal>
+      <Dependent Role="Contact_IN_Group">
+        <PropertyRef Name="Contact_ID_FK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Contact_I__Group__17276104">
+    <End Role="ContactGroup" Type="Self.ContactGroup" Multiplicity="1" />
+    <End Role="Contact_IN_Group" Type="Self.Contact_IN_Group" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ContactGroup">
+        <PropertyRef Name="ContactGroup_ID" />
+      </Principal>
+      <Dependent Role="Contact_IN_Group">
+        <PropertyRef Name="Group_ID_FK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Contacts__Countr__09985BBC">
+    <End Role="Countries" Type="Self.Countries" Multiplicity="0..1" />
+    <End Role="Contacts" Type="Self.Contacts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Countries">
+        <PropertyRef Name="Country_ID" />
+      </Principal>
+      <Dependent Role="Contacts">
+        <PropertyRef Name="CountryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Contact_Loading_Addresses_Contacts">
+    <End Role="Contacts" Type="Self.Contacts" Multiplicity="0..1" />
+    <End Role="Contact_Loading_Addresses" Type="Self.Contact_Loading_Addresses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Contacts">
+        <PropertyRef Name="Contact_ID" />
+      </Principal>
+      <Dependent Role="Contact_Loading_Addresses">
+        <PropertyRef Name="Contact_ID_FK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Contact_PICs_Contacts">
+    <End Role="Contacts" Type="Self.Contacts" Multiplicity="0..1" />
+    <End Role="Contact_PICs" Type="Self.Contact_PICs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Contacts">
+        <PropertyRef Name="Contact_ID" />
+      </Principal>
+      <Dependent Role="Contact_PICs">
+        <PropertyRef Name="Contact_ID_FK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Contacts_Contact_Types">
+    <End Role="Contact_Types" Type="Self.Contact_Types" Multiplicity="0..1" />
+    <End Role="Contacts" Type="Self.Contacts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Contact_Types">
+        <PropertyRef Name="Contact_Type_ID" />
+      </Principal>
+      <Dependent Role="Contacts">
+        <PropertyRef Name="Contact_Type_ID_FK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Emp_Contact">
+    <End Role="Employees" Type="Self.Employees" Multiplicity="0..1" />
+    <End Role="Contacts" Type="Self.Contacts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employees">
+        <PropertyRef Name="Employee_ID" />
+      </Principal>
+      <Dependent Role="Contacts">
+        <PropertyRef Name="Employee_ID_FK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employees_Employees">
+    <End Role="Employees" Type="Self.Employees" Multiplicity="0..1" />
+    <End Role="Employees1" Type="Self.Employees" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employees">
+        <PropertyRef Name="Employee_ID" />
+      </Principal>
+      <Dependent Role="Employees1">
+        <PropertyRef Name="ReportTO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FirstBlanceContact_Contacts">
+    <End Role="Contacts" Type="Self.Contacts" Multiplicity="0..1" />
+    <End Role="FirstBlanceContact" Type="Self.FirstBlanceContact" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Contacts">
+        <PropertyRef Name="Contact_ID" />
+      </Principal>
+      <Dependent Role="FirstBlanceContact">
+        <PropertyRef Name="Fk_Contact_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ERPWeb_WorldTransModelStoreContainer">
+    <EntitySet Name="Accts" EntityType="Self.Accts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Contact_IN_Group" EntityType="Self.Contact_IN_Group" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Contact_Loading_Addresses" EntityType="Self.Contact_Loading_Addresses" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Contact_PICs" EntityType="Self.Contact_PICs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Contact_Types" EntityType="Self.Contact_Types" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ContactGroup" EntityType="Self.ContactGroup" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Contacts" EntityType="Self.Contacts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Countries" EntityType="Self.Countries" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Currencies" EntityType="Self.Currencies" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Employees" EntityType="Self.Employees" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FirstBlanceContact" EntityType="Self.FirstBlanceContact" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Contact_I__Conta__16333CCB" Association="Self.FK__Contact_I__Conta__16333CCB">
+      <End Role="Contacts" EntitySet="Contacts" />
+      <End Role="Contact_IN_Group" EntitySet="Contact_IN_Group" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Contact_I__Group__17276104" Association="Self.FK__Contact_I__Group__17276104">
+      <End Role="ContactGroup" EntitySet="ContactGroup" />
+      <End Role="Contact_IN_Group" EntitySet="Contact_IN_Group" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Contacts__Countr__09985BBC" Association="Self.FK__Contacts__Countr__09985BBC">
+      <End Role="Countries" EntitySet="Countries" />
+      <End Role="Contacts" EntitySet="Contacts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Contact_Loading_Addresses_Contacts" Association="Self.FK_Contact_Loading_Addresses_Contacts">
+      <End Role="Contacts" EntitySet="Contacts" />
+      <End Role="Contact_Loading_Addresses" EntitySet="Contact_Loading_Addresses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Contact_PICs_Contacts" Association="Self.FK_Contact_PICs_Contacts">
+      <End Role="Contacts" EntitySet="Contacts" />
+      <End Role="Contact_PICs" EntitySet="Contact_PICs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Contacts_Contact_Types" Association="Self.FK_Contacts_Contact_Types">
+      <End Role="Contact_Types" EntitySet="Contact_Types" />
+      <End Role="Contacts" EntitySet="Contacts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Emp_Contact" Association="Self.FK_Emp_Contact">
+      <End Role="Employees" EntitySet="Employees" />
+      <End Role="Contacts" EntitySet="Contacts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employees_Employees" Association="Self.FK_Employees_Employees">
+      <End Role="Employees" EntitySet="Employees" />
+      <End Role="Employees1" EntitySet="Employees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FirstBlanceContact_Contacts" Association="Self.FK_FirstBlanceContact_Contacts">
+      <End Role="Contacts" EntitySet="Contacts" />
+      <End Role="FirstBlanceContact" EntitySet="FirstBlanceContact" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

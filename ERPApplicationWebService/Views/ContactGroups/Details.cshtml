@@ -1,0 +1,66 @@
+﻿@model ERPApplicationWebService.Models.ContactGroup
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ContactGroup</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ContactGroup_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ContactGroup_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Notes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Notes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Created_Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Created_Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Updated_Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Updated_Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Created_by)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Created_by)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Updated_by)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Updated_by)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ContactGroup_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
